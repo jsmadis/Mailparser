@@ -72,6 +72,14 @@ public class Mailbox {
         this.parsingRules = parsingRules;
     }
 
+    public void addParsingRule(ParsingRule parsingRule) {
+        parsingRules.add(parsingRule);
+    }
+
+    public void removeParsingRule(ParsingRule parsingRule) {
+        parsingRules.remove(parsingRule);
+    }
+
     public User getUser() {
         return user;
     }
@@ -86,6 +94,14 @@ public class Mailbox {
 
     public void setStoredMessages(List<StoredMessage> storedMessages) {
         this.storedMessages = storedMessages;
+    }
+
+    public void addStoredMessage(StoredMessage storedMessage) {
+        storedMessages.add(storedMessage);
+    }
+
+    public void removeStoredMessage(StoredMessage storedMessage) {
+        storedMessages.remove(storedMessage);
     }
 
     @Override

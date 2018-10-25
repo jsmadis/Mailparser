@@ -28,7 +28,7 @@ public class User {
 
     private String restURL;
 
-    @OneToMany(mappedBy = "user",cascade = {CascadeType.PERSIST,CascadeType.MERGE} ,
+    @OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST, CascadeType.MERGE},
             orphanRemoval = true)
     private List<Mailbox> mailboxes = new ArrayList<>();
 
@@ -62,6 +62,14 @@ public class User {
 
     public void setMailboxes(List<Mailbox> mailboxes) {
         this.mailboxes = mailboxes;
+    }
+
+    public void addMailbox(Mailbox mailbox) {
+        mailboxes.add(mailbox);
+    }
+
+    public void removeMailbox(Mailbox mailbox){
+        mailboxes.remove(mailbox);
     }
 
     @Override

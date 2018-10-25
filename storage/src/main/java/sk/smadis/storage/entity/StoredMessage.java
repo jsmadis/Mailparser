@@ -32,7 +32,7 @@ public class StoredMessage {
     @OneToMany(mappedBy = "message", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE}, orphanRemoval = true)
     private List<ParsedData> parsedData = new ArrayList<>();
 
-    @ManyToOne(cascade = { CascadeType.MERGE})
+    @ManyToOne(cascade = {CascadeType.MERGE})
     @JoinColumn(name = "mailbox_id")
     private Mailbox mailbox;
 
@@ -62,6 +62,14 @@ public class StoredMessage {
 
     public void setParsedData(List<ParsedData> parsedData) {
         this.parsedData = parsedData;
+    }
+
+    public void addParsedData(ParsedData parsedData) {
+        this.parsedData.add(parsedData);
+    }
+
+    public  void removeParsedData(ParsedData parsedData){
+        this.parsedData.remove(parsedData);
     }
 
     public Mailbox getMailbox() {
