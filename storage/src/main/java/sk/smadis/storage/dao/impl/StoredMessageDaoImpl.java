@@ -24,10 +24,10 @@ public class StoredMessageDaoImpl implements StoredMessageDao {
 
     @Override
     public StoredMessage create(StoredMessage storedMessage) {
-        if(storedMessage == null){
+        if (storedMessage == null) {
             throw new IllegalArgumentException("Message is null");
         }
-        if(storedMessage.getId() != null) {
+        if (storedMessage.getId() != null) {
             throw new IllegalArgumentException("Message is already in DB");
         }
         logger.info("Creating message: " + storedMessage);
@@ -41,10 +41,10 @@ public class StoredMessageDaoImpl implements StoredMessageDao {
 
     @Override
     public StoredMessage update(StoredMessage message) {
-        if(message == null){
+        if (message == null) {
             throw new IllegalArgumentException("Message is null");
         }
-        if(message.getId() == null){
+        if (message.getId() == null) {
             throw new IllegalArgumentException("Message is not in DB");
         }
         logger.info("Updating message: " + message);
@@ -55,10 +55,10 @@ public class StoredMessageDaoImpl implements StoredMessageDao {
 
     @Override
     public StoredMessage delete(StoredMessage storedMessage) {
-        if(storedMessage == null){
+        if (storedMessage == null) {
             throw new IllegalArgumentException("Message is null");
         }
-        if(!storedMessage.getParsedData().isEmpty()){
+        if (!storedMessage.getParsedData().isEmpty()) {
             deleteParsedData(storedMessage.getParsedData());
         }
         logger.info("Deleting message: " + storedMessage);
@@ -101,7 +101,7 @@ public class StoredMessageDaoImpl implements StoredMessageDao {
     }
 
 
-    private void deleteParsedData(List<ParsedData> parsedDataList){
+    private void deleteParsedData(List<ParsedData> parsedDataList) {
         for (int i = 0; i < parsedDataList.size(); i++) {
             ParsedData parsedData = parsedDataList.get(i);
             if (parsedData.getParsingRule() != null) {

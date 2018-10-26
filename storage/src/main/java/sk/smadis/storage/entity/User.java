@@ -68,7 +68,7 @@ public class User {
         mailboxes.add(mailbox);
     }
 
-    public void removeMailbox(Mailbox mailbox){
+    public void removeMailbox(Mailbox mailbox) {
         mailboxes.remove(mailbox);
     }
 

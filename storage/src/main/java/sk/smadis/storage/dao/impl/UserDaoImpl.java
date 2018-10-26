@@ -23,10 +23,10 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public User create(User user) {
-        if(user == null){
+        if (user == null) {
             throw new IllegalArgumentException("User is null");
         }
-        if(user.getId() != null) {
+        if (user.getId() != null) {
             throw new IllegalArgumentException("User does not have ID null");
         }
         logger.info("Creating user: " + user);
@@ -38,10 +38,10 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public User update(User user) {
-        if(user == null){
+        if (user == null) {
             throw new IllegalArgumentException("User is null");
         }
-        if(user.getId() == null){
+        if (user.getId() == null) {
             throw new IllegalArgumentException("User can not be updated with null id");
         }
         logger.info("Updating user: " + user);
@@ -53,7 +53,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public User delete(User user) {
-        if(user == null){
+        if (user == null) {
             throw new IllegalArgumentException("User is null");
         }
         logger.info("Deleting user: " + user);

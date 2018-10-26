@@ -20,7 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @RunWith(Arquillian.class)
 public class ParsingRuleDaoTest extends AbstractDaoTest {
     @Test
-    public void testCreateParsingRule(){
+    public void testCreateParsingRule() {
         ParsingRule parsingRule = new EntityFactory.ParsingRuleBuilder()
                 .name("parsingRule")
                 .parsingType(ParsingType.TEXT)
@@ -39,7 +39,7 @@ public class ParsingRuleDaoTest extends AbstractDaoTest {
     }
 
     @Test
-    public void testUpdateParsingRule(){
+    public void testUpdateParsingRule() {
         Long id = parsingRule1.getId();
         parsingRule1.setRule("updated rule");
         parsingRule1.setName("updated name");
@@ -59,7 +59,7 @@ public class ParsingRuleDaoTest extends AbstractDaoTest {
     }
 
     @Test
-    public void testDeleteParsingRule(){
+    public void testDeleteParsingRule() {
         Long id = parsingRule1.getId();
         parsingRuleDao.delete(parsingRule1);
 
@@ -75,19 +75,19 @@ public class ParsingRuleDaoTest extends AbstractDaoTest {
     }
 
     @Test
-    public void testFindParsingRuleById(){
+    public void testFindParsingRuleById() {
         ParsingRule parsingRule = parsingRuleDao.findById(parsingRule1.getId());
 
         assertThat(parsingRule).isEqualToComparingFieldByFieldRecursively(parsingRule1);
     }
 
     @Test
-    public void testFindParsingRuleByIdNotInDB(){
+    public void testFindParsingRuleByIdNotInDB() {
         assertThat(parsingRuleDao.findById(100000L)).isNull();
     }
 
     @Test
-    public void testGetAllParsingRules(){
+    public void testGetAllParsingRules() {
         List<ParsingRule> parsingRules = parsingRuleDao.getAllParsingRules();
 
         assertThat(parsingRules).containsOnly(parsingRule1);

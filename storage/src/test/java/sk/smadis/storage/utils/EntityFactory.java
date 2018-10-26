@@ -27,14 +27,14 @@ public class EntityFactory {
         return mailbox;
     }
 
-    public static ParsedData createParsedData(List<String> values){
+    public static ParsedData createParsedData(List<String> values) {
         ParsedData parsedData = new ParsedData();
         parsedData.setValues(values);
         return parsedData;
     }
 
 
-    public static StoredMessage createMessage(String messageID){
+    public static StoredMessage createMessage(String messageID) {
         StoredMessage message = new StoredMessage();
         message.setMessageID(messageID);
         message.setReceivedDate(Calendar.getInstance());

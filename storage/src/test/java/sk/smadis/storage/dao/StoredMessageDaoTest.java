@@ -30,7 +30,7 @@ public class StoredMessageDaoTest extends AbstractDaoTest {
     }
 
     @Test
-    public void testUpdateMessage(){
+    public void testUpdateMessage() {
         Long id = message1.getId();
 
         message1.setMessageID("updated id");
@@ -51,7 +51,7 @@ public class StoredMessageDaoTest extends AbstractDaoTest {
     }
 
     @Test
-    public void testDeleteMessage(){
+    public void testDeleteMessage() {
         Long id = message1.getId();
         messageDao.delete(message1);
 
@@ -65,33 +65,33 @@ public class StoredMessageDaoTest extends AbstractDaoTest {
     }
 
     @Test
-    public void testFindMessageById(){
+    public void testFindMessageById() {
         StoredMessage message = messageDao.findById(message1.getId());
 
         assertThat(message).isEqualToComparingFieldByFieldRecursively(message1);
     }
 
     @Test
-    public void testFindUserByIdNotInDB(){
+    public void testFindUserByIdNotInDB() {
         assertThat(messageDao.findById(1231231L)).isNull();
     }
 
     @Test
-    public void testGetAllMessages(){
+    public void testGetAllMessages() {
         List<StoredMessage> messages = messageDao.getAllStoredMessages();
 
         assertThat(messages).contains(message1);
     }
 
     @Test
-    public void testGetLastMessages(){
+    public void testGetLastMessages() {
         List<StoredMessage> messages = messageDao.getLastStoredMessages(1);
 
         assertThat(messages).containsExactlyInAnyOrder(message1);
     }
 
     @Test
-    public void testGetMessageAfter(){
+    public void testGetMessageAfter() {
         Calendar date = Calendar.getInstance();
         date.set(Calendar.YEAR, 2017);
         List<StoredMessage> messages = messageDao.getStoredMessagesAfter(date);
@@ -100,7 +100,7 @@ public class StoredMessageDaoTest extends AbstractDaoTest {
     }
 
     @Test
-    public void testGetMessagesAfter(){
+    public void testGetMessagesAfter() {
         Calendar date = Calendar.getInstance();
         date.set(Calendar.YEAR, 2000);
         List<StoredMessage> messages = messageDao.getStoredMessagesAfter(date);

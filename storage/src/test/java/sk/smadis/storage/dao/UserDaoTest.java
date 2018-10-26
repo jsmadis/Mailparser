@@ -48,7 +48,7 @@ public class UserDaoTest extends AbstractDaoTest {
     }
 
     @Test
-    public void testDeleteUser(){
+    public void testDeleteUser() {
         Long id = user1.getId();
         userDao.delete(user1);
 
@@ -64,19 +64,19 @@ public class UserDaoTest extends AbstractDaoTest {
     }
 
     @Test
-    public void testFindUserById(){
+    public void testFindUserById() {
         User user = userDao.findById(user1.getId());
 
         assertThat(user).isEqualToComparingFieldByField(user1);
     }
 
     @Test
-    public void testFindUserByIdNotInDB(){
+    public void testFindUserByIdNotInDB() {
         assertThat(userDao.findById(10000L)).isNull();
     }
 
     @Test
-    public void testGetAllUsers(){
+    public void testGetAllUsers() {
         List<User> users = userDao.getAllUsers();
 
         assertThat(users).containsOnly(user1);

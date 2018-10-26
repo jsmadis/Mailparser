@@ -69,7 +69,8 @@ public class StoredMessage {
         this.parsedData.add(parsedData);
     }
 
-    public  void removeParsedData(ParsedData parsedData){
+
+    public void removeParsedData(ParsedData parsedData) {
         this.parsedData.remove(parsedData);
     }
 
