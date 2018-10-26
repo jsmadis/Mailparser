@@ -25,7 +25,7 @@ public class ParsedData {
     private ParsingRule parsingRule;
 
     @ManyToOne(cascade = {CascadeType.MERGE})
-    @JoinColumn(name = "message_id")
+    @JoinColumn(name = "storedMessage_id")
     private StoredMessage storedMessage;
 
     private String fileName;

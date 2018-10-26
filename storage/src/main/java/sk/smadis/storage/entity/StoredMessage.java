@@ -29,7 +29,8 @@ public class StoredMessage {
     @NotNull
     private String messageID;
 
-    @OneToMany(mappedBy = "message", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE}, orphanRemoval = true)
+    @OneToMany(mappedBy = "storedMessage",
+            cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE}, orphanRemoval = true)
     private List<ParsedData> parsedData = new ArrayList<>();
 
     @ManyToOne(cascade = {CascadeType.MERGE})
