@@ -32,7 +32,9 @@ public class MailboxDaoImpl implements MailboxDao {
         }
         logger.info("Creating mailbox: " + mailbox);
 
-        User user = em.merge(mailbox.getUser());
+        User user = em.find(User.class, mailbox.getUser().getId());
+
+        mailbox.setUser(user);
         user.addMailbox(mailbox);
 
         em.persist(mailbox);

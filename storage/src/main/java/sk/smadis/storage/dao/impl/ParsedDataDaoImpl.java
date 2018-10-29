@@ -33,11 +33,11 @@ public class ParsedDataDaoImpl implements ParsedDataDao {
         }
         logger.info("Creating parsed data: " + parsedData);
 
-        StoredMessage storedMessage = parsedData.getStoredMessage();
-        em.merge(storedMessage);
-        ParsingRule parsingRule = parsedData.getParsingRule();
-        em.merge(parsingRule);
+        StoredMessage storedMessage = em.find(StoredMessage.class, parsedData.getStoredMessage().getId());
+        ParsingRule parsingRule = em.find(ParsingRule.class, parsedData.getParsingRule().getId());
 
+        parsedData.setStoredMessage(storedMessage);
+        parsedData.setParsingRule(parsingRule);
         storedMessage.addParsedData(parsedData);
         parsingRule.addParsedData(parsedData);
 

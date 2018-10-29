@@ -38,7 +38,9 @@ public class ParsingRuleDaoImpl implements ParsingRuleDao {
 
         logger.info("Creating parsing rule: " + parsingRule);
 
-        Mailbox mailbox = em.merge(parsingRule.getMailbox());
+        Mailbox mailbox = em.find(Mailbox.class, parsingRule.getMailbox().getId());
+
+        parsingRule.setMailbox(mailbox);
         mailbox.addParsingRule(parsingRule);
 
         em.persist(parsingRule);

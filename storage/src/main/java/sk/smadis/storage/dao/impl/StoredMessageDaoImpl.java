@@ -31,7 +31,10 @@ public class StoredMessageDaoImpl implements StoredMessageDao {
             throw new IllegalArgumentException("Message is already in DB");
         }
         logger.info("Creating message: " + storedMessage);
-        Mailbox mailbox = em.merge(storedMessage.getMailbox());
+
+        Mailbox mailbox = em.find(Mailbox.class, storedMessage.getMailbox().getId());
+
+        storedMessage.setMailbox(mailbox);
         mailbox.addStoredMessage(storedMessage);
 
         em.persist(storedMessage);
