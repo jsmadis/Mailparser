@@ -4,7 +4,6 @@ import sk.smadis.service.MailboxService;
 import sk.smadis.service.exceptions.MailparserServiceException;
 import sk.smadis.storage.dao.MailboxDao;
 import sk.smadis.storage.entity.Mailbox;
-import sk.smadis.storage.entity.User;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
