@@ -10,7 +10,7 @@ import java.util.List;
  * @author <a href="mailto:jakub.smadis@gmail.com">Jakub Smadiš</a>
  */
 public interface StoredMessageService {
-    StoredMessage create(StoredMessage storedMessage, Long mailboxID) throws MailparserServiceException;
+    StoredMessage create(StoredMessage storedMessage) throws MailparserServiceException;
 
     StoredMessage update(StoredMessage storedMessage) throws MailparserServiceException;
 

@@ -19,11 +19,10 @@ public class StoredMessageServiceImpl implements StoredMessageService {
     private StoredMessageDao storedMessageDao;
 
     @Override
-    public StoredMessage create(StoredMessage storedMessage, Long mailboxID) throws MailparserServiceException {
+    public StoredMessage create(StoredMessage storedMessage) throws MailparserServiceException {
         if (storedMessage == null) {
             throw new IllegalArgumentException("Message shouldn't be null.");
         }
-
         try {
             return storedMessageDao.create(storedMessage);
         } catch (Throwable t) {
