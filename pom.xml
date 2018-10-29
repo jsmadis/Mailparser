@@ -11,6 +11,7 @@
     <modules>
         <module>storage</module>
         <module>service</module>
+        <module>API</module>
     </modules>
 
     <properties>
@@ -24,6 +25,19 @@
     </properties>
 
 
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.plugin.version}</version>
+                <configuration>
+                    <source>${java.level}</source>
+                    <target>${java.level}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 
 </project>
