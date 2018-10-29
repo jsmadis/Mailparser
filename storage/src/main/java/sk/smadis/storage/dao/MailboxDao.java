@@ -26,7 +26,7 @@ public interface MailboxDao {
     Mailbox update(Mailbox mailbox);
 
     /**
-     * Deletes mailbox from databes
+     * Deletes mailbox from database
      *
      * @param mailbox Mailbox to delete
      * @return Deleted mailbox
