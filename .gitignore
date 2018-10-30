@@ -31,4 +31,6 @@ hs_err_pid*
 
 # Properties files for email client
 email-client/src/main/resources/receiver.properties
-email-client/src/main/resources/credentials.properties
+email-client/src/main/resources/receiver-credentials.properties
+email-client/src/main/resources/sender.properties
+email-client/src/main/resources/sender-credentials.properties
