@@ -13,6 +13,7 @@
         <module>service</module>
         <module>API</module>
         <module>rest</module>
+        <module>email-client</module>
     </modules>
 
     <properties>
