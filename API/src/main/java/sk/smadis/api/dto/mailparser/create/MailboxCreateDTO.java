@@ -1,7 +1,5 @@
 package sk.smadis.api.dto.mailparser.create;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import sk.smadis.api.dto.mailparser.UserDTO;
 
 /**
@@ -17,14 +15,6 @@ public class MailboxCreateDTO {
     public MailboxCreateDTO() {
     }
 
-    @JsonCreator
-    public MailboxCreateDTO(final @JsonProperty("name") String name,
-                            final @JsonProperty("resendRaw")boolean resendRaw,
-                            final @JsonProperty("user") UserDTO user) {
-        this.name = name;
-        this.resendRaw = resendRaw;
-        this.user = user;
-    }
 
     public String getName() {
         return name;

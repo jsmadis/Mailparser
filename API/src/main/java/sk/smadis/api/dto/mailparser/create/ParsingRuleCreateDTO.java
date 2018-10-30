@@ -1,7 +1,5 @@
 package sk.smadis.api.dto.mailparser.create;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import sk.smadis.api.dto.mailparser.MailboxDTO;
 import sk.smadis.api.dto.mailparser.enums.EmailComponent;
 import sk.smadis.api.dto.mailparser.enums.FileLanguage;
@@ -30,21 +28,6 @@ public class ParsingRuleCreateDTO {
 
 
     public ParsingRuleCreateDTO() {
-    }
-
-    @JsonCreator
-    public ParsingRuleCreateDTO(final @JsonProperty("name") String name,
-                                final @JsonProperty("parsingType") ParsingType parsingType,
-                                final @JsonProperty("component") EmailComponent component,
-                                final @JsonProperty("rule") String rule,
-                                final @JsonProperty("fileLanguage") FileLanguage fileLanguage,
-                                final @JsonProperty("mailbox") MailboxDTO mailbox) {
-        this.name = name;
-        this.parsingType = parsingType;
-        this.component = component;
-        this.rule = rule;
-        this.fileLanguage = fileLanguage;
-        this.mailbox = mailbox;
     }
 
     public String getName() {

@@ -12,6 +12,7 @@
         <module>storage</module>
         <module>service</module>
         <module>API</module>
+        <module>rest</module>
     </modules>
 
     <properties>

@@ -1,8 +1,5 @@
 package sk.smadis.api.dto.mailparser.create;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import javax.validation.constraints.NotNull;
 
 /**
@@ -14,15 +11,7 @@ public class UserCreateDTO {
 
     private String restURL;
 
-
     public UserCreateDTO() {
-    }
-
-    @JsonCreator
-    public UserCreateDTO(final @JsonProperty("name") String name,
-                         final @JsonProperty("restURL") String restURL) {
-        this.name = name;
-        this.restURL = restURL;
     }
 
     public String getName() {

@@ -1,8 +1,7 @@
 package sk.smadis.api.dto.mailparser;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import java.util.List;
@@ -12,6 +11,7 @@ import java.util.Objects;
  * @author <a href="mailto:jakub.smadis@gmail.com">Jakub Smadiš</a>
  */
 @JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class, property="id")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ParsedDataDTO {
     private Long id;
 
@@ -24,19 +24,6 @@ public class ParsedDataDTO {
     private List<String> values;
 
     public ParsedDataDTO() {
-    }
-
-    @JsonCreator
-    public ParsedDataDTO(final @JsonProperty("id") Long id,
-                         final @JsonProperty("storedMessage") StoredMessageDTO storedMessage,
-                         final @JsonProperty("parsingRule") ParsingRuleDTO parsingRule,
-                         final @JsonProperty("fileName") String fileName,
-                         final @JsonProperty("values") List<String> values) {
-        this.id = id;
-        this.fileName = fileName;
-        this.storedMessage = storedMessage;
-        this.parsingRule = parsingRule;
-        this.values = values;
     }
 
     public Long getId() {

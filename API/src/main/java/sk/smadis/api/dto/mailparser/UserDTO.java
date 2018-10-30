@@ -1,8 +1,7 @@
 package sk.smadis.api.dto.mailparser;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import java.util.ArrayList;
@@ -13,6 +12,7 @@ import java.util.Objects;
  * @author <a href="mailto:jakub.smadis@gmail.com">Jakub Smadiš</a>
  */
 @JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class, property="id")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class UserDTO {
     private Long id;
 
@@ -23,18 +23,6 @@ public class UserDTO {
     private List<MailboxDTO> mailboxes = new ArrayList<>();
 
     public UserDTO() {
-    }
-
-
-    @JsonCreator
-    public UserDTO(final @JsonProperty("id") Long id,
-                   final @JsonProperty("name") String name,
-                   final @JsonProperty("restURL") String restURL,
-                   final @JsonProperty("mailboxes") List<MailboxDTO> mailboxes) {
-        this.id = id;
-        this.name = name;
-        this.restURL = restURL;
-        this.mailboxes = mailboxes;
     }
 
     public Long getId() {
