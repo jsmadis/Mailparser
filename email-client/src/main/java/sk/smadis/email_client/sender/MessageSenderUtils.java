@@ -1,4 +1,4 @@
-package sk.smadis.email_client;
+package sk.smadis.email_client.sender;
 
 import sk.smadis.api.dto.email_client.AttachmentDTO;
 import sk.smadis.api.dto.email_client.BodyPartDTO;
@@ -27,7 +27,7 @@ import java.util.List;
  *
  * @author <a href="mailto:jakub.smadis@gmail.com">Jakub Smadiš</a>
  */
-public class MessageUtils {
+public class MessageSenderUtils {
 
     public static void fillMessage(MimeMessage message, MessageDTO messageDTO)
             throws MessagingException, ProcessingMessageException {

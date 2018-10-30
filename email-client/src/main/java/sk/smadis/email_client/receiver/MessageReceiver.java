@@ -39,7 +39,7 @@ public class MessageReceiver {
         Properties sessionProperties = new Properties();
         try {
             properties.load(getClass().getClassLoader().getResourceAsStream("receiver.properties"));
-            sessionProperties.load(getClass().getClassLoader().getResourceAsStream("credentials.properties"));
+            sessionProperties.load(getClass().getClassLoader().getResourceAsStream("receiver-credentials.properties"));
         } catch (IOException e) {
             logger.error("Error while processing properties files.", e);
         }
