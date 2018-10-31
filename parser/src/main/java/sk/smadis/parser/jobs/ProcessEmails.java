@@ -12,6 +12,7 @@ import sk.smadis.parser.parsers.Parser;
 import sk.smadis.service.MailboxService;
 import sk.smadis.service.UserService;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import java.io.IOException;
 import java.util.List;
@@ -19,6 +20,7 @@ import java.util.List;
 /**
  * @author <a href="mailto:jakub.smadis@gmail.com">Jakub Smadiš</a>
  */
+@ApplicationScoped
 public class ProcessEmails implements Job {
     @Inject
     private MessageReceiver messageReceiver;
