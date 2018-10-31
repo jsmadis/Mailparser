@@ -21,7 +21,7 @@ public class HTMLParser {
     private Logger logger = Logger.getLogger(this.getClass());
 
     /**
-     * Parses HTML parsing type from email based on parsing rule and returns it as ParsedData.
+     * Parses html parsing type from email based on parsing rule and returns it as ParsedData.
      *
      * @param email Email to parse
      * @param rule  ParsingRule

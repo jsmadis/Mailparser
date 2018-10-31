@@ -117,7 +117,7 @@ public class ParsingRuleDaoImpl implements ParsingRuleDao {
         if (parsingRule.getParsingType().equals(ParsingType.HTML) &&
                 (parsingRule.getComponent().equals(EmailComponent.HEADERS) ||
                         parsingRule.getComponent().equals(EmailComponent.SUBJECT))) {
-            throw new IllegalArgumentException("Parsing type HTML is incompatible with headers or subject");
+            throw new IllegalArgumentException("Parsing type html is incompatible with headers or subject");
         }
     }
 }

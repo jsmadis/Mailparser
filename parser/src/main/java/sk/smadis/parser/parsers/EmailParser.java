@@ -13,6 +13,7 @@ import sk.smadis.storage.entity.StoredMessage;
 import sk.smadis.storage.entity.enums.ParsingType;
 
 import javax.ejb.Stateless;
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -104,7 +105,7 @@ public class EmailParser implements Parser {
     private void parseData(StoredMessage storedMessage, ParsingRule rule, EmailToParse email) {
         List<ParsedData> parsedDataList = new ArrayList<>();
         if (email.getBodyHtml() != null && rule.getParsingType() == ParsingType.TEXT) {
-            String message = "Email contained HTML and parsing rule was set to TEXT --> skip. Parsing rule: " +
+            String message = "Email contained html and parsing rule was set to TEXT --> skip. Parsing rule: " +
                     rule + System.lineSeparator() + "Email:" + email;
             logger.debug(message);
             return;

@@ -8,7 +8,9 @@ import org.apache.log4j.Logger;
 import sk.smadis.email_client.EmailToParse;
 import sk.smadis.storage.entity.Mailbox;
 
+import javax.ejb.Stateless;
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.context.Dependent;
 
 /**
  * @author <a href="mailto:jakub.smadis@gmail.com">Jakub Smadiš</a>
