@@ -14,6 +14,7 @@
         <module>API</module>
         <module>rest</module>
         <module>email-client</module>
+        <module>parser</module>
     </modules>
 
     <properties>
