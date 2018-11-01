@@ -52,7 +52,7 @@ public class MessageReceiver {
         try {
             Store store = session.getStore("imap");
             store.connect(properties.getProperty("mail.imap.host"), Integer.valueOf(properties.getProperty("mail.imap.port")),
-                    "fugo@jsmadis-ntb.localhost", "123");
+                    properties.getProperty("username"), properties.getProperty("password"));
 
             Folder folder = store.getFolder("INBOX");
             folder.open(Folder.READ_WRITE);
