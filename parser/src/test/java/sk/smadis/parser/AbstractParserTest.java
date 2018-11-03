@@ -12,6 +12,8 @@ import sk.smadis.parser.parsers.EmailParser;
 import sk.smadis.parser.parsers.HTMLParser;
 import sk.smadis.parser.parsers.Parser;
 import sk.smadis.parser.parsers.PlainTextParser;
+import sk.smadis.parser.utils.DocumentUtils;
+import sk.smadis.parser.utils.FileUtils;
 import sk.smadis.parser.utils.OcrUtils;
 import sk.smadis.parser.utils.RESTSender;
 import sk.smadis.service.MailboxService;
@@ -19,7 +21,10 @@ import sk.smadis.service.ParsedDataService;
 import sk.smadis.service.StoredMessageService;
 import sk.smadis.storage.entity.Mailbox;
 import sk.smadis.storage.entity.ParsedData;
+import sk.smadis.storage.entity.ParsingRule;
 import sk.smadis.storage.entity.StoredMessage;
+import sk.smadis.storage.entity.enums.EmailComponent;
+import sk.smadis.storage.entity.enums.ParsingType;
 
 import javax.inject.Inject;
 import java.util.ArrayList;
@@ -62,6 +67,12 @@ public abstract class AbstractParserTest {
 
     @Spy
     private OcrUtils ocrUtils;
+
+    @Spy
+    private DocumentUtils documentUtils;
+
+    @Spy
+    private FileUtils fileUtils;
 
     protected Mailbox mailbox = null;
     protected List<StoredMessage> storedMessages = new ArrayList<>();
@@ -109,5 +120,16 @@ public abstract class AbstractParserTest {
         List<String> to = new ArrayList<>();
         to.add("test@localhost");
         return to;
+    }
+
+    protected Mailbox attachmentRuleMailbox(){
+        Mailbox mailbox = new Mailbox();
+        ParsingRule parsingRule = new ParsingRule();
+        parsingRule.setMailbox(mailbox);
+        parsingRule.setComponent(EmailComponent.ATTACHMENT);
+        parsingRule.setParsingType(ParsingType.TEXT);
+        parsingRule.setRule(".*.");
+        mailbox.addParsingRule(parsingRule);
+        return mailbox;
     }
 }

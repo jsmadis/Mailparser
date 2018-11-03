@@ -35,6 +35,7 @@ public class OcrUtils {
     public String getTextFromFile(File file, String language) {
         Tesseract tesseract = new Tesseract();
         tesseract.setLanguage(language);
+        logger.info("Getting text from file via Tesseract.");
         try {
             return tesseract.doOCR(file);
         } catch (TesseractException e) {

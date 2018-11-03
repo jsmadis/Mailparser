@@ -21,7 +21,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * @author <a href="mailto:jakub.smadis@gmail.com">Jakub Smadiš</a>
  */
 @RunWith(JUnit4.class)
-public class AttachmentPDFParseTest extends AbstractParserTest {
+public class AttachmentTxtParseTest extends AbstractParserTest {
     @Override
     public Mailbox setupMailbox() {
         return attachmentRuleMailbox();
@@ -41,7 +41,7 @@ public class AttachmentPDFParseTest extends AbstractParserTest {
     public List<EmailToParse> createEmails() {
         List<EmailToParse> emails = new ArrayList<>();
         EmailToParse emailToParse = new EmailToParse();
-        emailToParse.addFile(new File(getClass().getClassLoader().getResource("testing_attachment.pdf").getFile()))
+        emailToParse.addFile(new File(getClass().getClassLoader().getResource("testing_attachment.txt").getFile()))
                 .messageId("123456")
                 .receivedDate(Calendar.getInstance().getTime())
                 .to(createTo());

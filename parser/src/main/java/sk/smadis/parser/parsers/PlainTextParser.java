@@ -6,6 +6,7 @@ import sk.smadis.storage.entity.ParsingRule;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
