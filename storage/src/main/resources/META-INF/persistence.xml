@@ -2,16 +2,17 @@
 <persistence xmlns="http://java.sun.com/xml/ns/persistance" version="2.0">
 
 
-    <persistence-unit name="default">
-        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+    <persistence-unit name="default" transaction-type="JTA">
+        <jta-data-source>java:/jboss/MailparserDS</jta-data-source>
         <properties>
-            <property name="hibernate.connection.url" value="jdbc:derby:memory:testdb"/>
-            <property name="hibernate.connection.driver_class" value="org.apache.derby.jdbc.EmbeddedDriver"/>
-            <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
-            <property name="hibernate.dialect" value="org.hibernate.dialect.DerbyDialect"/>
-            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
-            <property name="hibernate.show_sql" value="false"/>
-            <property name="hibernate.format_sql" value="false"/>
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/mailparser"/>
+            <property name="javax.persistence.jdbc.user" value="myuser" />
+            <property name="javax.persistence.jdbc.password" value="mypassword" />
+
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.show_sql" value="false" />
             <property name="hibernate.enable_lazy_load_no_trans" value="true"/>
         </properties>
     </persistence-unit>

@@ -81,15 +81,22 @@ services:
     - NET_ADMIN
     - SYS_PTRACE
     restart: always
+  postgres:
+    image: mailparser/database:latest
+    environment:
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_USER: myuser
+      POSTGRES_DB: mailparser
   mailparser:
     image: mailparser/mailparser:latest
     ports:
       - 8080:8080
     links:
       - mail
+      - postgres
     depends_on:
       - mail
-
+      - postgres
 volumes:
   maildata:
     driver: local

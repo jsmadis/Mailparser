@@ -1,0 +1,9 @@
+embed-server --server-config=standalone.xml
+
+batch
+
+/subsystem=datasources/jdbc-driver=postgresql:add(driver-name=postgresql, driver-module-name=org.postgresql.jdbc, driver-xa-datasource-class-name=org.postgresql.xa.PGXADataSource)
+
+data-source add --jndi-name=java:/jboss/MailparserDS --name=MailparserDS --use-java-context=true --use-ccm=true --connection-url=jdbc:postgresql://localhost:5432/mailparser --driver-name=postgresql --user-name=myuser --password=mypassword --check-valid-connection-sql="SELECT 1" --background-validation=true --background-validation-millis=60000 --flush-strategy=IdleConnections
+
+run-batch

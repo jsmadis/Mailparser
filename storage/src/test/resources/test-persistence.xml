@@ -5,10 +5,16 @@
         http://java.sun.com/xml/ns/persistence
         http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 
-    <persistence-unit name="primary">
+    <persistence-unit name="test" transaction-type="JTA">
+        <jta-data-source>java:/jboss/MailparserDS</jta-data-source>
         <properties>
-            <!-- Properties for Hibernate -->
-            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/mailparser"/>
+            <property name="javax.persistence.jdbc.user" value="myuser" />
+            <property name="javax.persistence.jdbc.password" value="mypassword" />
+            <!--&lt;!&ndash; Properties for Hibernate &ndash;&gt;-->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="hibernate.show_sql" value="true"/>
         </properties>
     </persistence-unit>

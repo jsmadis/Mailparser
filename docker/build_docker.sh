@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+    #!/usr/bin/env bash
 
 VERSION=$1
 
@@ -15,3 +15,5 @@ docker build -t "mailparser/mailparser:$VERSION" $SRC/mailparser
 docker tag "mailparser/mailparser:$VERSION" mailparser/mailparser:latest
 
 
+docker build -t "mailparser/database:$VERSION" $SRC/database
+docker tag "mailparser/database:$VERSION" mailparser/database:latest

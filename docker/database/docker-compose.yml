@@ -1,0 +1,10 @@
+version: '2'
+services:
+  postgres:
+    build: .
+    ports:
+    - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_USER: myuser
+      POSTGRES_DB: mailparser

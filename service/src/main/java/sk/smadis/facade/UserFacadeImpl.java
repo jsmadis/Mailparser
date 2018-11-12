@@ -25,7 +25,6 @@ public class UserFacadeImpl implements UserFacade {
         User mappedUser = Mapper.INSTANCE
                 .createDTOToUser(userCreateDTO, new AvoidCycleMappingContext());
         User user = userService.create(mappedUser);
-        System.out.println("HERE");
         return Mapper.INSTANCE
                 .userToDTOUser(user, new AvoidCycleMappingContext());
     }
