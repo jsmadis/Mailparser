@@ -19,8 +19,6 @@ public class BodyPartDTO {
     @NotNull
     private BodyPartType type;
 
-    private MultipartDTO multipart;
-
     private TextDTO text;
 
     private AttachmentDTO attachment;
@@ -31,12 +29,10 @@ public class BodyPartDTO {
     @JsonCreator
     public BodyPartDTO(final @JsonProperty("headers") List<HeaderDTO> headers,
                        final @JsonProperty("type") BodyPartType type,
-                       final @JsonProperty("multipart") MultipartDTO multipart,
                        final @JsonProperty("text") TextDTO text,
                        final @JsonProperty("attachment") AttachmentDTO attachment) {
         this.headers = headers;
         this.type = type;
-        this.multipart = multipart;
         this.text = text;
         this.attachment = attachment;
     }
@@ -55,14 +51,6 @@ public class BodyPartDTO {
 
     public void setType(BodyPartType type) {
         this.type = type;
-    }
-
-    public MultipartDTO getMultipart() {
-        return multipart;
-    }
-
-    public void setMultipart(MultipartDTO multipart) {
-        this.multipart = multipart;
     }
 
     public TextDTO getText() {

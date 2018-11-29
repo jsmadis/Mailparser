@@ -93,10 +93,6 @@ public class MessageSenderUtils {
             case ATTACHMENT:
                 fillAttachment(bodyPart, bodyPartDTO);
                 break;
-            case MULTIPART:
-                checkMultipart(bodyPartDTO);
-                bodyPart.setContent(fillMultipart(bodyPartDTO.getMultipart()));
-                break;
             default:
                 throw new ProcessingMessageException("Wrong type of bodypart");
         }
@@ -104,9 +100,6 @@ public class MessageSenderUtils {
     }
 
     private static void fillText(MimeBodyPart bodyPart, BodyPartDTO bodyPartDTO) throws ProcessingMessageException, MessagingException {
-        if (bodyPartDTO.getMultipart() != null) {
-            throw new ProcessingMessageException("Type of body part was text but attribute multipart wasn't null");
-        }
         if (bodyPartDTO.getAttachment() != null) {
             throw new ProcessingMessageException("Type of body part was text but attribute attachment wasn't null");
         }
@@ -119,9 +112,6 @@ public class MessageSenderUtils {
     }
 
     private static void fillAttachment(MimeBodyPart bodyPart, BodyPartDTO bodyPartDTO) throws ProcessingMessageException, MessagingException {
-        if (bodyPartDTO.getMultipart() != null) {
-            throw new ProcessingMessageException("Type of body part was attachment but attribute multipart wasn't null");
-        }
         if (bodyPartDTO.getAttachment() == null) {
             throw new ProcessingMessageException("Type of body part was attachment but attribute attachment was null");
         }
@@ -134,18 +124,6 @@ public class MessageSenderUtils {
             bodyPart.attachFile(attachmentDTO.getPathToFile(), attachmentDTO.getType(), attachmentDTO.getEncoding());
         } catch (IOException e) {
             throw new ProcessingMessageException(e.getMessage());
-        }
-    }
-
-    private static void checkMultipart(BodyPartDTO bodyPartDTO) throws ProcessingMessageException {
-        if (bodyPartDTO.getMultipart() == null) {
-            throw new ProcessingMessageException("Type of body part was multipart but attribute multipart was null");
-        }
-        if (bodyPartDTO.getAttachment() != null) {
-            throw new ProcessingMessageException("Type of body part was multipart but attribute attachment wasn't null");
-        }
-        if (bodyPartDTO.getText() != null) {
-            throw new ProcessingMessageException("Type of body part was multipart but attribute text wasn't null");
         }
     }
 
