@@ -2,6 +2,7 @@ package sk.smadis.rest;
 
 import io.swagger.v3.jaxrs2.integration.resources.AcceptHeaderOpenApiResource;
 import io.swagger.v3.jaxrs2.integration.resources.OpenApiResource;
+import sk.smadis.rest.controllers.email.EmailSenderController;
 import sk.smadis.rest.controllers.mailparser.MailboxController;
 import sk.smadis.rest.controllers.mailparser.ParsedDataController;
 import sk.smadis.rest.controllers.mailparser.ParsingRuleController;
@@ -28,6 +29,7 @@ public class JAVActivator extends Application {
                 ParsingRuleController.class,
                 StoredMessageController.class,
                 UserController.class,
+                EmailSenderController.class,
                 OpenApiResource.class,
                 AcceptHeaderOpenApiResource.class).collect(Collectors.toSet());
     }

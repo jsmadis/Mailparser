@@ -12,10 +12,8 @@ public class AttachmentDTO {
     @NotNull
     private String filename;
 
-    @NotNull
     private String type;
 
-    @NotNull
     private String encoding;
 
     private String pathToFile;
