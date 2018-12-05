@@ -39,7 +39,7 @@ import javax.ws.rs.core.Response;
         servers = {
                 @Server(
                         description = "Localhost",
-                        url = "http://localhost:8080/rest/app"
+                        url = "http://localhost:8080/rest"
                 )
         }
 )
