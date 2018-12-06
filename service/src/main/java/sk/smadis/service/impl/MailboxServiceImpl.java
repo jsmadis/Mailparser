@@ -25,7 +25,7 @@ public class MailboxServiceImpl implements MailboxService {
             throw new IllegalArgumentException("Mailbox shouldn't be null.");
         }
         try {
-            mailbox.setName(createUniqueEmail(mailbox.getName()));
+            mailbox.setName(createUniqueLocalName(mailbox.getName()));
             return mailboxDao.create(mailbox);
         } catch (Throwable t) {
             throw new MailparserServiceException(t.getMessage());
@@ -96,13 +96,13 @@ public class MailboxServiceImpl implements MailboxService {
      * @param prefix mailbox name prefix
      * @return Mailbox name
      */
-    private String createUniqueEmail(String prefix) {
+    private String createUniqueLocalName(String prefix) {
         if (prefix == null) prefix = "";
         SecureRandom secureRandom = new SecureRandom();
         byte[] bytes = new byte[10];
         secureRandom.nextBytes(bytes);
         Base64.Encoder encoder = Base64.getUrlEncoder().withoutPadding();
         String name = encoder.encodeToString(bytes);
-        return prefix + "+" + name;
+        return prefix + name;
     }
 }
