@@ -28,10 +28,10 @@ public interface MailboxDao {
     /**
      * Deletes mailbox from database
      *
-     * @param mailbox Mailbox to delete
+     * @param id ID of mailbox to delete
      * @return Deleted mailbox
      */
-    Mailbox delete(Mailbox mailbox);
+    Mailbox delete(Long id);
 
     /**
      * Gets mailbox by ID

@@ -13,7 +13,7 @@ public interface StoredMessageFacade {
 
     void update(StoredMessageDTO storedMessageDTO);
 
-    void delete(StoredMessageDTO storedMessageDTO);
+    void delete(Long id);
 
     StoredMessageDTO findById(Long id);
 

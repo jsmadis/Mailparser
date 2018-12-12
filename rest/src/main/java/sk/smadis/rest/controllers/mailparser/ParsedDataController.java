@@ -33,11 +33,12 @@ public class ParsedDataController {
     private ParsedDataFacade parsedDataFacade;
 
     @DELETE
+    @Path("/{id:[0-9][0-9]*}")
     @Operation(summary = "Deletes parsed data",
             description = "Deletes parsed data")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response delete(ParsedDataDTO parsedDataDTO) {
-        parsedDataFacade.delete(parsedDataDTO);
+    public Response delete(@Parameter(description = "Id of parsed data", required = true)
+                               @PathParam("id") Long id) {
+        parsedDataFacade.delete(id);
         return Response.ok().build();
     }
 

@@ -33,9 +33,8 @@ public class ParsedDataFacadeImpl implements ParsedDataFacade {
     }
 
     @Override
-    public void delete(ParsedDataDTO parsedDataDTO) {
-        ParsedData mappedParsedData = Mapper.INSTANCE.dtoToParsedData(parsedDataDTO, new AvoidCycleMappingContext());
-        parsedDataService.delete(mappedParsedData);
+    public void delete(Long id) {
+        parsedDataService.delete(id);
     }
 
     @Override

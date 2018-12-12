@@ -55,7 +55,7 @@ public class MailboxFacadeTest extends AbstractFacadeTest {
     public void testDeleteMailbox() {
         MailboxDTO mailbox = mailboxFacade.findById(mailboxDTO.getId());
 
-        mailboxFacade.delete(mailbox);
+        mailboxFacade.delete(mailbox.getId());
 
         UserDTO user = userFacade.findById(userDTO.getId());
         mailbox = mailboxFacade.findById(mailbox.getId());

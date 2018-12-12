@@ -58,10 +58,12 @@ public class MailboxDaoImpl implements MailboxDao {
     }
 
     @Override
-    public Mailbox delete(Mailbox mailbox) {
-        if (mailbox == null) {
-            throw new IllegalArgumentException("Mailbox is null");
+    public Mailbox delete(Long id) {
+        if (id == null) {
+            throw new IllegalArgumentException("Id is null");
         }
+        Mailbox mailbox = em.find(Mailbox.class, id);
+        if (mailbox == null) return null;
         if (mailbox.getUser() != null) {
             User user = mailbox.getUser();
             user.removeMailbox(mailbox);
@@ -69,7 +71,6 @@ public class MailboxDaoImpl implements MailboxDao {
             em.merge(user);
         }
         logger.info("Deleting mailbox: " + mailbox);
-
         em.remove(em.merge(mailbox));
         em.flush();
         return mailbox;

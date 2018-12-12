@@ -13,7 +13,7 @@ public interface ParsingRuleService {
 
     ParsingRule update(ParsingRule parsingRule) throws MailparserServiceException;
 
-    void delete(ParsingRule parsingRule) throws MailparserServiceException;
+    void delete(Long id) throws MailparserServiceException;
 
     ParsingRule findById(Long id) throws MailparserServiceException;
 

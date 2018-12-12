@@ -59,12 +59,12 @@ public class UserController {
     }
 
     @DELETE
+    @Path("/{id:[0-9][0-9]*}")
     @Operation(summary = "Deletes user",
             description = "Deletes user")
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response delete(UserDTO userDTO) {
-        userFacade.delete(userDTO);
+    public Response delete(@Parameter(description = "Id of user", required = true)
+                               @PathParam("id") Long id) {
+        userFacade.delete(id);
         return Response.ok().build();
     }
 

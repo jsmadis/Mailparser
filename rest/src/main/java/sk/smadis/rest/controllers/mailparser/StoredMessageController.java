@@ -35,11 +35,12 @@ public class StoredMessageController {
     private StoredMessageFacade storedMessageFacade;
 
     @DELETE
+    @Path("/{id:[0-9][0-9]*}")
     @Operation(summary = "Deletes stored message",
             description = "Deletes stored message")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response delete(StoredMessageDTO storedMessageDTO) {
-        storedMessageFacade.delete(storedMessageDTO);
+    public Response delete(@Parameter(description = "Id of stored message", required = true)
+                               @PathParam("id") Long id) {
+        storedMessageFacade.delete(id);
         return Response.ok().build();
     }
 

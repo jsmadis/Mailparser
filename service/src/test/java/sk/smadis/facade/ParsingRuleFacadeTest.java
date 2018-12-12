@@ -62,7 +62,7 @@ public class ParsingRuleFacadeTest extends AbstractFacadeTest {
     public void testDeleteParsingRule(){
         ParsingRuleDTO parsingRule = parsingRuleFacade.findById(parsingRuleDTO.getId());
 
-        parsingRuleFacade.delete(parsingRule);
+        parsingRuleFacade.delete(parsingRule.getId());
 
         UserDTO user = userFacade.findById(userDTO.getId());
         MailboxDTO mailbox = mailboxFacade.findById(mailboxDTO.getId());

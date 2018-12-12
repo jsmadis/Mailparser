@@ -37,10 +37,8 @@ public class StoredMessageFacadeImpl implements StoredMessageFacade {
     }
 
     @Override
-    public void delete(StoredMessageDTO storedMessageDTO) {
-        StoredMessage message = Mapper.INSTANCE
-                .messageDTOToMessage(storedMessageDTO, new AvoidCycleMappingContext());
-        storedMessageService.delete(message);
+    public void delete(Long id) {
+        storedMessageService.delete(id);
     }
 
     @Override

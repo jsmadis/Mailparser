@@ -27,10 +27,10 @@ public interface ParsedDataDao {
     /**
      * Deletes parsed data
      *
-     * @param parsedData ParsedData to delete
+     * @param id ID of ParsedData to delete
      * @return Deleted ParsedData
      */
-    ParsedData delete(ParsedData parsedData);
+    ParsedData delete(Long id);
 
     /**
      * Find parsed data by id

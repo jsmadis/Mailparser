@@ -41,7 +41,7 @@ public class UserFacadeImplTest extends AbstractFacadeTest {
         Long id = userDTO.getId();
 
         userDTO = userFacade.findById(userDTO.getId());
-        userFacade.delete(userDTO);
+        userFacade.delete(userDTO.getId());
 
         assertThat(userFacade.findById(id)).isNull();
         assertThat(mailboxFacade.findById(mailboxDTO.getId())).isNull();

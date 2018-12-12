@@ -42,12 +42,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void delete(User user) throws MailparserServiceException {
-        if (user == null) {
-            throw new IllegalArgumentException("User shouldn't be null.");
+    public void delete(Long id) throws MailparserServiceException {
+        if (id == null) {
+            throw new IllegalArgumentException("User id shouldn't be null.");
         }
         try {
-            userDao.delete(user);
+            userDao.delete(id);
         } catch (Throwable t) {
             throw new MailparserServiceException(t.getMessage());
         }
@@ -56,7 +56,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findById(Long id) throws MailparserServiceException {
         if (id == null) {
-            throw new IllegalArgumentException("Id shouldn't be null.");
+            throw new IllegalArgumentException("User id shouldn't be null.");
         }
         try {
             return userDao.findById(id);

@@ -61,10 +61,12 @@ public class ParsedDataDaoImpl implements ParsedDataDao {
     }
 
     @Override
-    public ParsedData delete(ParsedData parsedData) {
-        if (parsedData == null) {
-            throw new IllegalArgumentException("ParsedData is null");
+    public ParsedData delete(Long id) {
+        if (id == null) {
+            throw new IllegalArgumentException("Id is null");
         }
+        ParsedData parsedData = em.find(ParsedData.class, id);
+        if (parsedData == null) return null;
         if (parsedData.getParsingRule() != null) {
             ParsingRule parsingRule = parsedData.getParsingRule();
             parsingRule.removeParsedData(parsedData);

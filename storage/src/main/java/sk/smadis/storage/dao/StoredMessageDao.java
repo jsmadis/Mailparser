@@ -28,10 +28,10 @@ public interface StoredMessageDao {
     /**
      * Deletes stored message
      *
-     * @param storedMessage StoredMessage to delete
+     * @param id ID of StoredMessage to delete
      * @return Deleted StoredMessage
      */
-    StoredMessage delete(StoredMessage storedMessage);
+    StoredMessage delete(Long id);
 
     /**
      * Finds StoredMessage by id

@@ -52,10 +52,12 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public User delete(User user) {
-        if (user == null) {
-            throw new IllegalArgumentException("User is null");
+    public User delete(Long id) {
+        if (id == null) {
+            throw new IllegalArgumentException("Id is null");
         }
+        User user = em.find(User.class, id);
+        if(user == null) return null;
         logger.info("Deleting user: " + user);
 
         em.remove(em.merge(user));

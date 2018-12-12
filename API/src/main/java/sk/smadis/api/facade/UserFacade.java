@@ -13,7 +13,7 @@ public interface UserFacade {
 
     void update(UserDTO userDTO);
 
-    void delete(UserDTO userDTO);
+    void delete(Long id);
 
     UserDTO findById(Long id);
 

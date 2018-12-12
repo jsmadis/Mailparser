@@ -27,10 +27,10 @@ public interface ParsingRuleDao {
     /**
      * Deletes parsing rule
      *
-     * @param parsingRule ParsingRule to Delete
+     * @param id  ID of ParsingRule to Delete
      * @return Deteled ParsingRule
      */
-    ParsingRule delete(ParsingRule parsingRule);
+    ParsingRule delete(Long id);
 
     /**
      * Finds parsing rule by ID

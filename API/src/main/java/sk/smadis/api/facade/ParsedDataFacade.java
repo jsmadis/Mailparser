@@ -12,7 +12,7 @@ public interface ParsedDataFacade {
 
     void update(ParsedDataDTO parsedDataDTO);
 
-    void delete(ParsedDataDTO parsedDataDTO);
+    void delete(Long id);
 
     ParsedDataDTO findById(Long id);
 

@@ -36,9 +36,8 @@ public class MailboxFacadeImpl implements MailboxFacade {
     }
 
     @Override
-    public void delete(MailboxDTO mailboxDTO) {
-        Mailbox mappedMailbox = Mapper.INSTANCE.mailboxDTOToMailbox(mailboxDTO, new AvoidCycleMappingContext());
-        mailboxService.delete(mappedMailbox);
+    public void delete(Long id) {
+        mailboxService.delete(id);
     }
 
     @Override

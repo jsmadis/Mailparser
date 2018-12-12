@@ -42,12 +42,12 @@ public class ParsedDataServiceImpl implements ParsedDataService {
     }
 
     @Override
-    public void delete(ParsedData parsedData) throws MailparserServiceException {
-        if (parsedData == null) {
-            throw new IllegalArgumentException("Parsed data shouldn't be null.");
+    public void delete(Long id) throws MailparserServiceException {
+        if (id == null) {
+            throw new IllegalArgumentException("Parsed data id shouldn't be null.");
         }
         try {
-            parsedDataDao.delete(parsedData);
+            parsedDataDao.delete(id);
         } catch (Throwable t) {
             throw new MailparserServiceException(t.getMessage());
         }
@@ -56,7 +56,7 @@ public class ParsedDataServiceImpl implements ParsedDataService {
     @Override
     public ParsedData findById(Long id) throws MailparserServiceException {
         if (id == null) {
-            throw new IllegalArgumentException("Id shouldn't be null.");
+            throw new IllegalArgumentException("ParsedData id shouldn't be null.");
         }
         try {
             return parsedDataDao.findById(id);

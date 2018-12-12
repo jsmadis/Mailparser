@@ -13,7 +13,7 @@ public interface UserService {
 
     User update(User user) throws MailparserServiceException;
 
-    void delete(User user) throws MailparserServiceException;
+    void delete(Long id) throws MailparserServiceException;
 
     User findById(Long id) throws MailparserServiceException;
 

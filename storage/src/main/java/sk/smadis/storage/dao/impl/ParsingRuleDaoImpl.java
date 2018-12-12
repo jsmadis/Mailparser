@@ -65,10 +65,12 @@ public class ParsingRuleDaoImpl implements ParsingRuleDao {
     }
 
     @Override
-    public ParsingRule delete(ParsingRule parsingRule) {
-        if (parsingRule == null) {
-            throw new IllegalArgumentException("Parsing rule is null");
+    public ParsingRule delete(Long id) {
+        if (id == null) {
+            throw new IllegalArgumentException("id is null");
         }
+        ParsingRule parsingRule = em.find(ParsingRule.class, id);
+        if (parsingRule == null) return null;
         em.setFlushMode(FlushModeType.COMMIT);
         if (!parsingRule.getParsedData().isEmpty()) {
             deleteParsedData(parsingRule.getParsedData());

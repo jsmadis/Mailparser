@@ -14,7 +14,7 @@ public interface StoredMessageService {
 
     StoredMessage update(StoredMessage storedMessage) throws MailparserServiceException;
 
-    void delete(StoredMessage storedMessage) throws MailparserServiceException;
+    void delete(Long id) throws MailparserServiceException;
 
     StoredMessage findById(Long id) throws MailparserServiceException;
 

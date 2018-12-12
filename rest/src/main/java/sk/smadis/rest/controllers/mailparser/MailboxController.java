@@ -76,14 +76,12 @@ public class MailboxController {
     }
 
     @DELETE
+    @Path("/{id:[0-9][0-9]*}")
     @Operation(summary = "Deletes mailbox",
             description = "Deletes mailbox")
-    @RequestBody(description = "Mailbox",
-            content = @Content(schema = @Schema(implementation = MailboxDTO.class)))
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response delete(MailboxDTO mailboxDTO) {
-        mailboxFacade.delete(mailboxDTO);
+    public Response delete(@Parameter(description = "Id of mailbox", required = true)
+                               @PathParam("id") Long id) {
+        mailboxFacade.delete(id);
         return Response.ok().build();
     }
 

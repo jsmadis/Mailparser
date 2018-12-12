@@ -13,7 +13,7 @@ public interface MailboxService {
 
     Mailbox update(Mailbox mailbox)throws MailparserServiceException;
 
-    void delete(Mailbox mailbox)throws MailparserServiceException;
+    void delete(Long id)throws MailparserServiceException;
 
     Mailbox findByName(String name)throws MailparserServiceException;
 

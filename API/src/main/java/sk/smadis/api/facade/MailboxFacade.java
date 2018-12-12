@@ -13,7 +13,7 @@ public interface MailboxFacade {
 
     void update(MailboxDTO mailboxDTO);
 
-    void delete(MailboxDTO mailboxDTO);
+    void delete(Long id);
 
     MailboxDTO findById(Long id);
 

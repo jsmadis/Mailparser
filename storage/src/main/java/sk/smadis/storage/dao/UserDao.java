@@ -27,10 +27,10 @@ public interface UserDao {
     /**
      * Deletes user
      *
-     * @param user User to delete
+     * @param id ID of User to delete
      * @return Deleted user
      */
-    User delete(User user);
+    User delete(Long id);
 
     /**
      * Finds user by ID

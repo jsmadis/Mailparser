@@ -13,7 +13,7 @@ public interface ParsingRuleFacade {
 
     void update(ParsingRuleDTO parsingRuleDTO);
 
-    void delete(ParsingRuleDTO parsingRuleDTO);
+    void delete(Long id);
 
     ParsingRuleDTO findById(Long id);
 

@@ -50,7 +50,7 @@ public class UserDaoTest extends AbstractDaoTest {
     @Test
     public void testDeleteUser() {
         Long id = user1.getId();
-        userDao.delete(user1);
+        userDao.delete(user1.getId());
 
         assertThat(userDao.findById(id)).isNull();
 

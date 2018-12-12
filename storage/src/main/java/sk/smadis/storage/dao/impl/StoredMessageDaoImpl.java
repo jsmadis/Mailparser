@@ -57,10 +57,12 @@ public class StoredMessageDaoImpl implements StoredMessageDao {
     }
 
     @Override
-    public StoredMessage delete(StoredMessage storedMessage) {
-        if (storedMessage == null) {
-            throw new IllegalArgumentException("Message is null");
+    public StoredMessage delete(Long id) {
+        if (id == null) {
+            throw new IllegalArgumentException("Id is null");
         }
+        StoredMessage storedMessage = em.find(StoredMessage.class, id);
+        if(storedMessage == null) return null;
         if (!storedMessage.getParsedData().isEmpty()) {
             deleteParsedData(storedMessage.getParsedData());
         }

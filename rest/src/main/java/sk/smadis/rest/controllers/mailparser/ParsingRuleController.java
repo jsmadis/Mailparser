@@ -59,11 +59,12 @@ public class ParsingRuleController {
     }
 
     @DELETE
+    @Path("/{id:[0-9][0-9]*}")
     @Operation(summary = "Deletes parsing rule",
             description = "Deletes parsing rule")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response delete(ParsingRuleDTO parsingRuleDTO) {
-        parsingRuleFacade.delete(parsingRuleDTO);
+    public Response delete(@Parameter(description = "Id of parsing rule", required = true)
+                               @PathParam("id") Long id) {
+        parsingRuleFacade.delete(id);
         return Response.ok().build();
     }
 

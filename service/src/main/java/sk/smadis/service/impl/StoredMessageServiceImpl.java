@@ -43,12 +43,12 @@ public class StoredMessageServiceImpl implements StoredMessageService {
     }
 
     @Override
-    public void delete(StoredMessage message) throws MailparserServiceException {
-        if (message == null) {
-            throw new IllegalArgumentException("Message shouldn't be null.");
+    public void delete(Long id) throws MailparserServiceException {
+        if (id == null) {
+            throw new IllegalArgumentException("Message id shouldn't be null.");
         }
         try {
-            storedMessageDao.delete(message);
+            storedMessageDao.delete(id);
         } catch (Throwable t) {
             throw new MailparserServiceException(t.getMessage());
         }
@@ -57,7 +57,7 @@ public class StoredMessageServiceImpl implements StoredMessageService {
     @Override
     public StoredMessage findById(Long id) throws MailparserServiceException {
         if (id == null) {
-            throw new IllegalArgumentException("Id shouldn't be null.");
+            throw new IllegalArgumentException("Message id shouldn't be null.");
         }
         try {
             return storedMessageDao.findById(id);

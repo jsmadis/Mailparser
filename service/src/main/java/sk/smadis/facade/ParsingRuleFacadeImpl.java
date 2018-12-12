@@ -37,10 +37,8 @@ public class ParsingRuleFacadeImpl implements ParsingRuleFacade {
     }
 
     @Override
-    public void delete(ParsingRuleDTO parsingRuleDTO) {
-        ParsingRule mappedParsingRule = Mapper.INSTANCE
-                .dtoToParsingRule(new AvoidCycleMappingContext(),parsingRuleDTO);
-        parsingRuleService.delete(mappedParsingRule);
+    public void delete(Long id) {
+        parsingRuleService.delete(id);
     }
 
     @Override

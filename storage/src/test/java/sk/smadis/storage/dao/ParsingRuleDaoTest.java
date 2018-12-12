@@ -61,7 +61,7 @@ public class ParsingRuleDaoTest extends AbstractDaoTest {
     @Test
     public void testDeleteParsingRule() {
         Long id = parsingRule1.getId();
-        parsingRuleDao.delete(parsingRule1);
+        parsingRuleDao.delete(parsingRule1.getId());
 
         assertThat(parsingRuleDao.findById(id)).isNull();
 

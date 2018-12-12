@@ -63,7 +63,7 @@ public class MailboxDaoTest extends AbstractDaoTest {
     @Test
     public void testDeleteMailbox() {
         Long id = mailbox1.getId();
-        mailboxDao.delete(mailbox1);
+        mailboxDao.delete(mailbox1.getId());
 
         assertThat(mailboxDao.findById(id)).isNull();
 

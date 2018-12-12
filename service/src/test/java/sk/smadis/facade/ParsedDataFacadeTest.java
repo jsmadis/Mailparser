@@ -72,7 +72,7 @@ public class ParsedDataFacadeTest extends AbstractFacadeTest {
     public void testDeleteParsedData(){
         ParsedDataDTO parsedData = parsedDataFacade.findById(parsedDataDTO.getId());
 
-        parsedDataFacade.delete(parsedData);
+        parsedDataFacade.delete(parsedData.getId());
 
         UserDTO user = userFacade.findById(userDTO.getId());
         MailboxDTO mailbox = mailboxFacade.findById(mailboxDTO.getId());

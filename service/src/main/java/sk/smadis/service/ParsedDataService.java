@@ -13,7 +13,7 @@ public interface ParsedDataService {
 
     ParsedData update(ParsedData parsedData) throws MailparserServiceException;
 
-    void delete(ParsedData parsedData) throws MailparserServiceException;
+    void delete(Long id) throws MailparserServiceException;
 
     ParsedData findById(Long id) throws MailparserServiceException;
 

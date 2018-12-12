@@ -53,7 +53,7 @@ public class StoredMessageDaoTest extends AbstractDaoTest {
     @Test
     public void testDeleteMessage() {
         Long id = message1.getId();
-        messageDao.delete(message1);
+        messageDao.delete(message1.getId());
 
         assertThat(messageDao.findById(id)).isNull();
 

@@ -43,12 +43,12 @@ public class ParsingRuleServiceImpl implements ParsingRuleService {
     }
 
     @Override
-    public void delete(ParsingRule parsingRule) throws MailparserServiceException {
-        if (parsingRule == null) {
-            throw new IllegalArgumentException("Parsing rule shouldn't be null.");
+    public void delete(Long id) throws MailparserServiceException {
+        if (id == null) {
+            throw new IllegalArgumentException("Parsing rule id shouldn't be null.");
         }
         try {
-            parsingRuleDao.delete(parsingRule);
+            parsingRuleDao.delete(id);
         } catch (Throwable t) {
             throw new MailparserServiceException(t.getMessage());
         }
@@ -57,7 +57,7 @@ public class ParsingRuleServiceImpl implements ParsingRuleService {
     @Override
     public ParsingRule findById(Long id) throws MailparserServiceException {
         if (id == null) {
-            throw new IllegalArgumentException("Id shouldn't be null.");
+            throw new IllegalArgumentException("ParsingRule id shouldn't be null.");
         }
         try {
             return parsingRuleDao.findById(id);

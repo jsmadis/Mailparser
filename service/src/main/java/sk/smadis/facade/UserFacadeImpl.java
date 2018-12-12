@@ -37,10 +37,8 @@ public class UserFacadeImpl implements UserFacade {
     }
 
     @Override
-    public void delete(UserDTO userDTO) {
-        User mappedUser = Mapper.INSTANCE
-                .userDTOToUser(userDTO, new AvoidCycleMappingContext());
-        userService.delete(mappedUser);
+    public void delete(Long id) {
+        userService.delete(id);
     }
 
     @Override

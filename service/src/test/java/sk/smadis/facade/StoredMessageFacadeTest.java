@@ -52,7 +52,7 @@ public class StoredMessageFacadeTest extends AbstractFacadeTest {
     public void testDeleteStoredMessage(){
         StoredMessageDTO message = messageFacade.findById(storedMessageDTO.getId());
 
-        messageFacade.delete(message);
+        messageFacade.delete(message.getId());
 
         UserDTO user = userFacade.findById(userDTO.getId());
         MailboxDTO mailbox = mailboxFacade.findById(mailboxDTO.getId());

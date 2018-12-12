@@ -45,12 +45,12 @@ public class MailboxServiceImpl implements MailboxService {
     }
 
     @Override
-    public void delete(Mailbox mailbox) throws MailparserServiceException {
-        if (mailbox == null) {
-            throw new IllegalArgumentException("Mailbox shouldn't be null.");
+    public void delete(Long id) throws MailparserServiceException {
+        if (id == null) {
+            throw new IllegalArgumentException("Mailbox id shouldn't be null.");
         }
         try {
-            mailboxDao.delete(mailbox);
+            mailboxDao.delete(id);
         } catch (Throwable t) {
             throw new MailparserServiceException(t.getMessage());
         }
@@ -71,7 +71,7 @@ public class MailboxServiceImpl implements MailboxService {
     @Override
     public Mailbox findById(Long id) throws MailparserServiceException {
         if (id == null) {
-            throw new IllegalArgumentException("Id shouldn't be null.");
+            throw new IllegalArgumentException("Mailbox id shouldn't be null.");
         }
         try {
             return mailboxDao.findById(id);

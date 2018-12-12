@@ -60,7 +60,7 @@ public class ParsedDataDaoTest extends AbstractDaoTest {
     @Test
     public void testDeleteParsedData() {
         Long id = parsedData1.getId();
-        parsedDataDao.delete(parsedData1);
+        parsedDataDao.delete(parsedData1.getId());
 
         assertThat(parsedDataDao.findById(id)).isNull();
 
