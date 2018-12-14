@@ -21,7 +21,6 @@ public class DateParameterConverter implements ParamConverter<Date> {
         try {
             return simpleDateFormat.parse(s);
         } catch (ParseException e) {
-            //TODO
             throw new RuntimeException(e);
         }
     }
